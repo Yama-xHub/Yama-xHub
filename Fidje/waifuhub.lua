@@ -27,11 +27,9 @@ coroutine.wrap(
 		end
 	end
 )()
-while true do
-task.wait()
-local t = 5
- local ue = tick() % t / t
-end
+
+
+
 local Testui = Instance.new("ScreenGui")
 Testui.Name = "Testui"
 Testui.Parent = game.CoreGui
@@ -116,12 +114,17 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainSceen.BackgroundColor3 = Color3.fromHSV(ue,1,1)
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
 	MainSceen.Size = UDim2.new(0, 550, 0, 300)
-
+while true do
+task.wait()
+local t = 5
+ local ue = tick() % t / t
+MainSceen.BackgroundColor3 = Color3.fromHSV(ue,1,1)
+MainSceen.Parent.Color = ue
+end
 	local Main_UiConner = Instance.new("UICorner")
 	Main_UiConner.Name = "Main_UiConner"
 	Main_UiConner.CornerRadius = UDim.new(0, 8)
