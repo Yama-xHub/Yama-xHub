@@ -27,7 +27,7 @@ coroutine.wrap(
 		end
 	end
 )()
-
+ 
 local Testui = Instance.new("ScreenGui")
 Testui.Name = "Testui"
 Testui.Parent = game.CoreGui
@@ -112,7 +112,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainSceen.BackgroundColor3 = Color3.fromRGB(250,128,144)
+	MainSceen.BackgroundColor3 = Color3.Random()
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -130,7 +130,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	Main_UiStroke.Parent = MainSceen
 	Main_UiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	Main_UiStroke.LineJoinMode = Enum.LineJoinMode.Round
-	Main_UiStroke.Color = rainbow(Color3.fromRGB(250,128,144))
+	Main_UiStroke.Color = Color3.fromRGB(250,128,144)
 	Main_UiStroke.Transparency = 0
 
 	local ClickFrame = Instance.new("Frame")
@@ -3972,9 +3972,7 @@ function isnil(thing)
 		return math.floor(tonumber(n) + 0.5)
 	end
 	Number = math.random(1, 1000000)
-	function rainbow()
-	return math.floor(Vector3("randomstring"))
-	end
+	
 function InfAb()
         if getgenv().InfAbility then
             if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
