@@ -112,7 +112,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainSceen.BackgroundColor3  = Color3.fromRGB(math.random(0,255), math.random(0,255), math.random(0,255))
+	MainSceen.BackgroundColor3  = Color3.fromRGB(math.random(0,255), math.random(0,255), math.random(0,255),Color3.fromHSV(tick() * 24 % 255/255, 1, 1))
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -5224,9 +5224,7 @@ end)
 
 function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
         CheckQuest()
-        repeat wait()
             bypasstp(CFrameQuest)
-        until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 4
         wait(0.4)
         local args = {
             [1] = "StartQuest",
