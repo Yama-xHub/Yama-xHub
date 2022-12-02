@@ -132,28 +132,28 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	Main_UiStroke.Parent = MainSceen
 	Main_UiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	Main_UiStroke.LineJoinMode = Enum.LineJoinMode.Round
-	Main_UiStroke.Color = Color3.fromHSV(ue,1,1)
+	Main_UiStroke.Color = Color3.fromRGB(250,128,144)
 	Main_UiStroke.Transparency = 0
-while true do
-task.wait()
-local t = 5
- local ue = tick() % t / t
-Main_UiStroke.Color = Color3.fromHSV(ue,1,1)
-Main_UiStroke.Parent.Color = Main_UiStroke.Color
-end
+
 	local ClickFrame = Instance.new("Frame")
 
 	ClickFrame.Name = "ClickFrame"
 	ClickFrame.Parent = MainSceen
 	ClickFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-	ClickFrame.BackgroundColor3 = Color3.fromRGB(250,128,144)
+	ClickFrame.BackgroundColor3 = Color3.fromHSV(ue,1,1)
 	ClickFrame.BackgroundTransparency = 1.000
 	ClickFrame.ClipsDescendants = true
 	ClickFrame.Position = UDim2.new(0.5, 0, 0.0543823242, 0)
 	ClickFrame.Size = UDim2.new(0, 550, 0, 30)
 
 	MakeDraggable(ClickFrame,MainSceen)
-
+while true do
+task.wait()
+local t = 5
+ local ue = tick() % t / t
+ClickFrame.BackgroundColor3 = Color3.fromHSV(ue,1,1)
+ClickFrame.Parent.Color = ClickFrame.BackgroundColor3
+end
 	local NameReal = Instance.new("TextLabel")
 
 	NameReal.Name = "NameReal"
