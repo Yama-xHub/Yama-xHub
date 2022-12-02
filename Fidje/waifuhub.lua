@@ -135,13 +135,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	Main_UiStroke.LineJoinMode = Enum.LineJoinMode.Round
 	Main_UiStroke.Color = Color3.fromHSV(ue,1,1)
 	Main_UiStroke.Transparency = 0
-while true do
-task.wait()
-local t = 5
- local ue = tick() % t / t
-Main_UiStroke.Color = Color3.fromHSV(ue,1,1)
-Main_UiStroke.Parent.Color = Main_UiStroke.Color
-end
+
 	local ClickFrame = Instance.new("Frame")
 
 	ClickFrame.Name = "ClickFrame"
@@ -697,13 +691,19 @@ end
 
 				ImageButton.Parent = TextButton_2_Toggle
 				ImageButton.AnchorPoint = Vector2.new(0.5, 0.5)
-				ImageButton.BackgroundColor3 = Color3.fromRGB(84, 0, 253)
+				ImageButton.BackgroundColor3 = Color3.fromHSV(ue,1,1)
 				ImageButton.BackgroundTransparency = 0
 				ImageButton.BorderSizePixel = 0
 				ImageButton.AutoButtonColor = false
 				ImageButton.Position = UDim2.new(0.5, 0, 0.5, 0)
 				ImageButton.Size = UDim2.new(0, 0, 0, 0)
-
+            while true do
+task.wait()
+local t = 5
+ local ue = tick() % t / t
+ImageButton.BackgroundColor3 = Color3.fromHSV(ue,1,1)
+ImageButton.Parent.Color = ImageButton.BackgroundColor3
+end
 				local UICorner6 = Instance.new("UICorner")
 
 				UICorner6.CornerRadius = UDim.new(0, 6)
