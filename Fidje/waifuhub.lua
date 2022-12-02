@@ -112,7 +112,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainSceen.BrickColor = BrickColor.Random()
+	MainSceen.Background = BrickColor.Random()
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -5256,8 +5256,8 @@ function TP()
 												
 												game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
 			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-			   chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-			   EquipWeapon(getgenv().tool)
+			 chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+			   
 			   game:GetService'VirtualUser':CaptureController()
 			   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												PosMon = v.HumanoidRootPart.CFrame
@@ -5280,73 +5280,7 @@ end
 end
 
 
-spawn(function()
-        while wait() do
-            if getgenv().AutoFarm then
-                pcall(function()
-                    local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                    if not string.find(QuestTitle, NameMon) then
-                        StartMagnet = false
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                    end
-                    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                        StartMagnet = false
-                        CheckQuest()
-                        repeat wait() chichdiem(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not getgenv().AutoFarm
-                        if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
-                            wait(0.1)
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-                            wait(0.5)
-                        end
-                    elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                        CheckQuest()
-                        if game:GetService("Workspace").Enemies:FindFirstChild(Mon) then
-                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                    if v.Name == Ms then
-                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-                                            repeat task.wait()
-                                                EquipWeapon(getgenv().tool)
-                                                AutoHaki()                                            
-                                                PosMon = v.HumanoidRootPart.CFrame
-                                                chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                                v.HumanoidRootPart.CanCollide = false
-                                                v.Humanoid.WalkSpeed = 0
-                                                v.Head.CanCollide = false
-                                                v.HumanoidRootPart.Size = Vector3.new(70,70,70)
-                                                StartMagnet = true
-                                                game:GetService'VirtualUser':CaptureController()
-                                                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                            until not getgenv().AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                        else
-                                            StartMagnet = false
-                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                                        end
-                                    end
-                                end
-                            end
-                        else
-                            StartMagnet = false
-                            if game:GetService("ReplicatedStorage"):FindFirstChild(Ms) then
-                                chichdiem(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                            else
-                                if (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1 then
-                                    if PosMon ~= nil then
-                                        chichdiem(PosMon * CFrame.new(0,30,0))
-                                    else
-                                        if OldPos ~= nil then
-                                            chichdiem(OldPos.Position)
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end)
-            end
-        end
-    end)
-    
+
 local SelectToolWeapona = AutoFarm:Dropdown("SelectWeapon",lol,function(Select)
     getgenv().tool = Select
 end)
