@@ -112,7 +112,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainSceen.BackgroundColor3  = Color3.fromRGB(math.random(0,255), math.random(0,255), math.random(0,255),Color3.fromHSV(tick() * 24 % 255/255, 1, 1))
+	MainSceen.BackgroundBrickColor3 = BrickColor3.Random()
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -5227,7 +5227,7 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetHomePoint")
 wait(1)
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
-                 wait(1)
+                 wait(0.3)
                  game.Players.LocalPlayer.Character.Head:Destroy()
         wait(0.4)
         local args = {
@@ -5255,9 +5255,9 @@ function TP()
 												v.HumanoidRootPart.CanCollide = false
 												
                                                 
-												
+												EquipWeapon(getgenv().tool)
 												game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(2, 2.02, 1)
-			   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+			   v.HumanoidRootPart.Size = Vector3.new(70,70,70)
 			 chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 			   
 			   game:GetService'VirtualUser':CaptureController()
