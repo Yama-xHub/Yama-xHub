@@ -701,7 +701,6 @@ function ui:W1n(text,text2,text2Pos,toclose)
 task.wait()
 local t = 5
  local ue = tick() % t / t
-ImageButton.BackgroundColor3 = Color3.fromHSV(ue,1,1)
 end
 				local UICorner6 = Instance.new("UICorner")
 
