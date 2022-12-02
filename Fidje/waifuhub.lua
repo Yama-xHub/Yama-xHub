@@ -112,7 +112,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainSceen.Background  = Color3.fromRGB(math.random(0,255), math.random(0,255), math.random(0,255))
+	MainSceen.BackgroundColor3  = Color3.fromRGB(math.random(0,255), math.random(0,255), math.random(0,255))
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
