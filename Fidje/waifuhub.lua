@@ -120,6 +120,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
 	MainSceen.Size = UDim2.new(0, 550, 0, 300)
 
+
 	local Main_UiConner = Instance.new("UICorner")
 	Main_UiConner.Name = "Main_UiConner"
 	Main_UiConner.CornerRadius = UDim.new(0, 8)
