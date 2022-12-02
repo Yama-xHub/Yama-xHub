@@ -130,7 +130,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	Main_UiStroke.Parent = MainSceen
 	Main_UiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	Main_UiStroke.LineJoinMode = Enum.LineJoinMode.Round
-	Main_UiStroke.Color = Color3.fromRGB(250,128,144),Color3.fromHSV(tick() * 24 % 255/255, 1, 1)
+	Main_UiStroke.Color = rainbow(Color3.fromRGB(250,128,144))
 	Main_UiStroke.Transparency = 0
 
 	local ClickFrame = Instance.new("Frame")
@@ -3965,6 +3965,16 @@ repeat wait() until game:GetService("Players").LocalPlayer.PlayerGui:FindFirstCh
 end
 -----
 -- Function
+function isnil(thing)
+		return (thing == nil)
+	end
+	local function round(n)
+		return math.floor(tonumber(n) + 0.5)
+	end
+	Number = math.random(1, 1000000)
+	function rainbow()
+	return math.floor(Vector3("randomstring"))
+	end
 function InfAb()
         if getgenv().InfAbility then
             if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
@@ -4330,11 +4340,11 @@ local numpos = 0
           while task.wait() do
               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = x
               if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame == x then
-                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetHomePoint")
               end
               numpos = numpos + 1
               if numpos == 5 then
-                  game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                  game.Players.LocalPlayer.Character.Head:Destroy()
                   numpos=0
                   break
               end
@@ -5777,7 +5787,12 @@ Main:Toggle("Auto Evo Race",false,function(vu)
 									for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 										if v.Name == "Swan Pirate [Lv. 775]" then
 											repeat game:GetService("RunService").Heartbeat:wait()
-												EquipWeapon(SelectWeapon)
+												getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
+for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == getgenv().type then
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+    end
+end
 												chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 												v.HumanoidRootPart.CanCollide = false
 												v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
@@ -5901,7 +5916,13 @@ end
 					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 						if v.Name == "Jeremy [Lv. 850] [Boss]" then
 							repeat wait(.1)
-								EquipWeapon(SelectWeapon)
+								getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
+for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == getgenv().type then
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+    end
+end
+
 								v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 								chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,15,6))
 								game:GetService'VirtualUser':CaptureController()
@@ -5951,7 +5972,13 @@ spawn(function()
 					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 						if string.find(v.Name, "Ship") then
 							repeat game:GetService("RunService").Heartbeat:wait()
-								EquipWeapon(SelectWeapon)
+								getgenv().type = "Melee" -- "Blox Fruit" ,"Sword" ,"Gun" ,"Wear"
+for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ToolTip == getgenv().type then
+        game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+    end
+end
+
 								if string.find(v.Name, "Ship") then
 									chichdiem(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
 									game:GetService'VirtualUser':CaptureController()
