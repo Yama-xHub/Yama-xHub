@@ -702,7 +702,6 @@ task.wait()
 local t = 5
  local ue = tick() % t / t
 ImageButton.BackgroundColor3 = Color3.fromHSV(ue,1,1)
-ImageButton.Parent.Color = ImageButton.BackgroundColor3
 end
 				local UICorner6 = Instance.new("UICorner")
 
