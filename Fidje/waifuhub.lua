@@ -133,7 +133,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	Main_UiStroke.Parent = MainSceen
 	Main_UiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	Main_UiStroke.LineJoinMode = Enum.LineJoinMode.Round
-	Main_UiStroke.Color = Color3.fromHSV(ue,1,1)
+	Main_UiStroke.Color = Color3.fromRGB(250,128,144)
 	Main_UiStroke.Transparency = 0
 
 	local ClickFrame = Instance.new("Frame")
