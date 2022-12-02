@@ -5224,7 +5224,11 @@ end)
 
 function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
         CheckQuest()
-            bypasstp(CFrameQuest)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetHomePoint")
+wait(1)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
+                 wait(1)
+                 game.Players.LocalPlayer.Character.Head:Destroy()
         wait(0.4)
         local args = {
             [1] = "StartQuest",
