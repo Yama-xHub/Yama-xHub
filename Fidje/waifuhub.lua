@@ -27,7 +27,9 @@ coroutine.wrap(
 		end
 	end
 )()
- 
+
+local t = 5
+ local ue = tick() % t / t
 local Testui = Instance.new("ScreenGui")
 Testui.Name = "Testui"
 Testui.Parent = game.CoreGui
@@ -112,7 +114,7 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainSceen.BackgroundBrickColor = BrickColor.random()
+	MainSceen.BackgroundColor3 = Color3.fromHSV(ue,1,1)
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
