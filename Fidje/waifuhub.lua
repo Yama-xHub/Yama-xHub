@@ -691,17 +691,12 @@ function ui:W1n(text,text2,text2Pos,toclose)
 
 				ImageButton.Parent = TextButton_2_Toggle
 				ImageButton.AnchorPoint = Vector2.new(0.5, 0.5)
-				ImageButton.BackgroundColor3 = Color3.fromHSV(ue,1,1)
+				ImageButton.BackgroundColor3 = Color3.fromRGB(84, 0, 253)
 				ImageButton.BackgroundTransparency = 0
 				ImageButton.BorderSizePixel = 0
 				ImageButton.AutoButtonColor = false
 				ImageButton.Position = UDim2.new(0.5, 0, 0.5, 0)
 				ImageButton.Size = UDim2.new(0, 0, 0, 0)
-            while true do
-task.wait()
-local t = 5
- local ue = tick() % t / t
-end
 				local UICorner6 = Instance.new("UICorner")
 
 				UICorner6.CornerRadius = UDim.new(0, 6)
@@ -5130,7 +5125,13 @@ OPENCLOSE.TextWrapped=true
 OPENCLOSE.MouseButton1Click:Connect(function()
 game.CoreGui:FindFirstChild("Testui").Enabled = not game.CoreGui:FindFirstChild("Testui").Enabled
 end)
-
+while true do
+task.wait()
+local t = 5
+ local ue = tick() % t / t
+OPENCLOSE.TextColor3 = Color3.fromHSV(ue,1,1)
+OPENCLOSE.Parent.Color = OPENCLOSE.TextColor3
+end
 -- local win = UiLib:Window("Béo HUB | Blox Fruits v17.3", giongcaikia")
 
 local win = ui:W1n("Waifu HUB | V 1.0","Blox Fruits",0.50,Enum.KeyCode.RightControl)
