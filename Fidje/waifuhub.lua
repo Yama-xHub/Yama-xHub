@@ -123,7 +123,6 @@ task.wait()
 local t = 5
  local ue = tick() % t / t
 MainSceen.BackgroundColor3 = Color3.fromHSV(ue,1,1)
-MainSceen.Parent.Color = ue
 end
 	local Main_UiConner = Instance.new("UICorner")
 	Main_UiConner.Name = "Main_UiConner"
