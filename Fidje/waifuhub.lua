@@ -114,16 +114,12 @@ function ui:W1n(text,text2,text2Pos,toclose)
 	MainSceen.Name = "MainSceen"
 	MainSceen.Parent = Testui
 	MainSceen.AnchorPoint = Vector2.new(0.5, 0.5)
+	MainSceen.BackgroundColor3 = Color3.fromRGB(250,128,144)
 	MainSceen.BorderSizePixel = 0
 	MainSceen.ClipsDescendants = true
 	MainSceen.Position = UDim2.new(0.5, 0, 0.5, 0)
 	MainSceen.Size = UDim2.new(0, 550, 0, 300)
-while true do
-task.wait()
-local t = 5
- local ue = tick() % t / t
-MainSceen.BackgroundColor3 = Color3.fromHSV(ue,1,1)
-end
+
 	local Main_UiConner = Instance.new("UICorner")
 	Main_UiConner.Name = "Main_UiConner"
 	Main_UiConner.CornerRadius = UDim.new(0, 8)
@@ -136,9 +132,15 @@ end
 	Main_UiStroke.Parent = MainSceen
 	Main_UiStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 	Main_UiStroke.LineJoinMode = Enum.LineJoinMode.Round
-	Main_UiStroke.Color = Color3.fromRGB(250,128,144)
+	Main_UiStroke.Color = Color3.fromHSV(ue,1,1)
 	Main_UiStroke.Transparency = 0
-
+while true do
+task.wait()
+local t = 5
+ local ue = tick() % t / t
+Main_UiStroke.Color = Color3.fromHSV(ue,1,1)
+Main_UiStroke.Parent.Color = Main_UiStroke.Color
+end
 	local ClickFrame = Instance.new("Frame")
 
 	ClickFrame.Name = "ClickFrame"
