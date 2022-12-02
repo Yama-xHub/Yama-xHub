@@ -27,9 +27,11 @@ coroutine.wrap(
 		end
 	end
 )()
-
+while true do
+task.wait()
 local t = 5
  local ue = tick() % t / t
+end
 local Testui = Instance.new("ScreenGui")
 Testui.Name = "Testui"
 Testui.Parent = game.CoreGui
@@ -5228,9 +5230,8 @@ function AutoQuest()     if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visibl
         CheckQuest()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetHomePoint")
 wait(1)
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
-                 wait(0.3)
-                 game.Players.LocalPlayer.Character.Head:Destroy()
+            chichdiem(CFrameQuest)
+           
         wait(0.4)
         local args = {
             [1] = "StartQuest",
